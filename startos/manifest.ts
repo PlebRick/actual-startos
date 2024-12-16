@@ -1,35 +1,37 @@
 import { setupManifest } from '@start9labs/start-sdk'
 
 export const manifest = setupManifest({
-  id: 'hello-world',
-  title: 'Hello World',
+  id: 'actual-server',
+  title: 'Actual Server',
   license: 'mit',
-  wrapperRepo: 'https://github.com/Start9Labs/hello-world-wrapper',
-  upstreamRepo: 'https://github.com/Start9Labs/hello-world',
-  supportSite: 'https://docs.start9.com/',
-  marketingSite: 'https://start9.com/',
-  donationUrl: 'https://donate.start9.com/',
+  wrapperRepo: 'https://github.com/PlebRick/actual-startos.git', // Replace with your actual repo URL
+  upstreamRepo: 'https://github.com/actualbudget/actual',
+  supportSite: 'https://actualbudget.com/support',
+  marketingSite: 'https://actualbudget.com/',
+  donationUrl: 'https://github.com/sponsors/actualbudget',
   description: {
-    short: 'Bare bones example of a StartOS service',
-    long: 'Hello World is a template service that provides examples of basic StartOS features.',
+    short: 'A local-first personal finance system',
+    long: 'Actual is a local-first personal finance system designed to help you manage your budget with privacy and control. It runs as a self-hosted server and is accessible through your web browser.',
   },
   assets: [],
-  volumes: ['main'],
+  volumes: ['data'], // Persistent data storage for Actual
   images: {
-    'hello-world': {
+    'actual-server': {
       source: {
-        dockerTag: 'start9/hello-world',
+        dockerTag: 'actualbudget/actual-server:latest', // Using the official Docker image
       },
     },
   },
-  hardwareRequirements: {},
+  hardwareRequirements: {}, // You can define minimum specs if known, or leave this empty
   alerts: {
-    install: 'Optional alert to display before installing the service',
-    update: null,
-    uninstall: null,
-    restore: null,
+    install: null,
+    update: 'Ensure your budget data is backed up before updating the service.',
+    uninstall: 'Uninstalling will permanently delete all server files. Ensure you have a backup.',
+    restore: 'Restoring from a backup will overwrite current server data.',
     start: null,
     stop: null,
   },
-  dependencies: {},
+  dependencies: {
+    // Define StartOS dependencies if needed, e.g., a database
+  },
 })

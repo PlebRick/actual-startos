@@ -1,12 +1,32 @@
-# Hello World for StartOS
 
-A bare bones project serving as a template for [StartOS Service Packaging](https://docs.star9.com/packaging-guide).
+# Actual Server for StartOS
 
-## Building from source
+[](https://github.com/PlebRick/actual-startos/blob/master/README.md#actual-server-for-startos)
 
-`npm i`
-`make`
+A
+ StartOS wrapper for Actual Server, a local-first personal finance
+system. This package pulls the official Docker image of Actual Server
+and makes it accessible through your web browser.
 
-## Creating your own project
+## Features
 
-Follow the [Quick Start Guide](https://docs.star9.com/packaging-guide/quick-start/) for StartOS service packaging, replacing references to `hello-world-startos` with this service ID.
+[](https://github.com/PlebRick/actual-startos/blob/master/README.md#features)
+
+* Self-hosted personal finance system.
+* Browser-accessible interface.
+* Secure and private budgeting.
+
+## Quick Start
+
+[](https://github.com/PlebRick/actual-startos/blob/master/README.md#quick-start)
+
+1. Install the `.s9pk` file on your StartOS device.
+2. Configure the service via the StartOS GUI.
+3. Access the Actual server on port `5006`.
+
+## Resources
+
+[](https://github.com/PlebRick/actual-startos/blob/master/README.md#resources)
+
+* [Official Actual Documentation](https://actualbudget.com/)
+* [Support](https://actualbudget.com/support)

@@ -1,23 +1,25 @@
 {
-  "name": "hello-world-startos",
+  "name": "actual-startos",
+  "version": "0.1.0",
+  "description": "StartOS package for Actual Server",
+  "main": "index.js",
   "scripts": {
-    "build": "rm -rf ./javascript && ncc build startos/index.ts -o ./javascript",
-    "prettier": "prettier --write startos",
+    "build": "npm run prettier && tsc",
+    "prettier": "prettier --write startos/**/*.ts",
     "check": "tsc --noEmit"
   },
   "dependencies": {
-    "@start9labs/start-sdk": "0.3.6-beta.1"
+    "@start9labs/start-sdk": "^0.3.6"
   },
   "devDependencies": {
-    "@types/node": "^22.1.0",
-    "@vercel/ncc": "^0.38.1",
-    "prettier": "^3.2.5",
-    "typescript": "^5.4.3"
+    "typescript": "^5.5.4",
+    "prettier": "^3.3.3",
+    "@types/node": "^18.16.0"
   },
   "prettier": {
-    "trailingComma": "all",
-    "tabWidth": 2,
-    "semi": false,
-    "singleQuote": true
-  }
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "semi": false,
+  "singleQuote": true
+}
 }
