@@ -4,20 +4,18 @@ import { setDependencies } from './dependencies'
 import { setInterfaces } from './interfaces'
 import { versions } from './versions'
 import { actions } from './actions'
-import { getSecretPhrase } from './utils'
-import { yamlFile } from './file-models/config.yml'
+import { jsonFile } from './file-models/config.json'
 
 // **** Install ****
 const install = sdk.setupInstall(async ({ effects }) => {
-  const name = 'World'
+  // placeholder ip for hostname
+  const hostnames = [await sdk.getContainerIp(effects)]
+  const key = await sdk.getSslKey(effects, { hostnames })
+  // full chain: leaf, intermediate, root cert
+  const cert = (await sdk.getSslCerificate(effects, hostnames).const())[2]
 
-  await yamlFile.write({ name })
+  await jsonFile.write({ https: { key, cert } })
 
-  await sdk.store.setOwn(
-    effects,
-    sdk.StorePath.secretPhrase,
-    getSecretPhrase(name),
-  )
 })
 
 // **** Uninstall ****
