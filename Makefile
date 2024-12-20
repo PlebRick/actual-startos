@@ -10,6 +10,9 @@ all: ${PACKAGE_ID}.s9pk
 ${PACKAGE_ID}.s9pk: $(shell start-cli s9pk list-ingredients)
 	start-cli s9pk pack
 
+javascript/index.js: $(shell find startos -name "*.ts") tsconfig.json node_modules package.json
+	npm run build
+
 # No JavaScript build needed since we're pulling the Docker image
 node_modules: package.json package-lock.json
 	npm ci

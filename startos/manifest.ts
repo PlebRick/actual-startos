@@ -5,7 +5,7 @@ export const manifest = setupManifest({
   title: 'Actual Server',
   license: 'mit',
   wrapperRepo: 'https://github.com/PlebRick/actual-startos.git',
-  upstreamRepo: 'https://github.com/actualbudget/actual',
+  upstreamRepo: 'https://github.com/actualbudget/actual-server',
   supportSite: 'https://actualbudget.com/support',
   marketingSite: 'https://actualbudget.com/',
   donationUrl: 'https://github.com/sponsors/actualbudget',
@@ -26,7 +26,8 @@ export const manifest = setupManifest({
   alerts: {
     install: null,
     update: 'Ensure your budget data is backed up before updating the service.',
-    uninstall: 'Uninstalling will permanently delete all server files. Ensure you have a backup.',
+    uninstall:
+      'Uninstalling will permanently delete all server files. Ensure you have a backup.',
     restore: 'Restoring from a backup will overwrite current server data.',
     start: null,
     stop: null,

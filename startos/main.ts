@@ -25,7 +25,7 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
    */
   return sdk.Daemons.of(effects, started, healthReceipts).addDaemon('primary', {
     image: { id: 'actual-server' }, // Use the Docker image ID from manifest.ts
-    command: ['node', 'app.js'], // Correct start command for actual-server
+    command: ['node', 'app'], // Correct start command for actual-server
     mounts: sdk.Mounts.of().addVolume('data', null, '/data', false), // Mount the data directory
     ready: {
       display: 'Web Interface',
