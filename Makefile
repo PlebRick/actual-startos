@@ -25,6 +25,10 @@ clean:
 	rm -rf ${PACKAGE_ID}.s9pk
 	rm -rf node_modules
 
+# Verify the .s9pk file
+verify:
+	start-cli s9pk verify ${PACKAGE_ID}.s9pk
+
 # Install target
 install:
 	@if [ ! -f ~/.startos/config.yaml ]; then echo "You must define \"host: http://server-name.local\" in ~/.startos/config.yaml config file first."; exit 1; fi
