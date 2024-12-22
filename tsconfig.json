@@ -1,12 +1,13 @@
 {
-  "include": ["startos/**/*.ts", "node_modules/**/startos"],
+  "include": ["startos/**/*.ts"],
   "compilerOptions": {
-    "outDir": "./javascript", // Specify output directory for compiled files
-    "target": "ES2018",
+    "target": "es2018",
     "module": "CommonJS",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "outDir": "./javascript",
+    "rootDir": "./startos" 
   }
 }
