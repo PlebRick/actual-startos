@@ -1,4 +1,4 @@
-npmPACKAGE_ID := actual-server
+PACKAGE_ID := actual-server
 
 # Phony targets
 .PHONY: all clean install
@@ -10,7 +10,7 @@ all: ${PACKAGE_ID}.s9pk
 ${PACKAGE_ID}.s9pk: $(shell start-cli s9pk list-ingredients)
 	start-cli s9pk pack
 
-javascript/index.js: $(shell find startos -name "*.ts") tsconfig.json node_modules package.json
+javascript/index.js: $(shell git ls-files startos) tsconfig.json node_modules package.json
 	npm run build
 
 # No JavaScript build needed since we're pulling the Docker image
@@ -23,11 +23,8 @@ package-lock.json: package.json
 # Clean target
 clean:
 	rm -rf ${PACKAGE_ID}.s9pk
+	rm -rf javascript
 	rm -rf node_modules
-
-# Verify the .s9pk file
-verify:
-	start-cli s9pk verify ${PACKAGE_ID}.s9pk
 
 # Install target
 install:
