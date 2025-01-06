@@ -1,4 +1,4 @@
-PACKAGE_ID := hello-world
+PACKAGE_ID := actual-server
 
 # Phony targets
 .PHONY: all clean install
